@@ -1,10 +1,8 @@
 <script setup lang="ts">
-defineProps({
-  loanPeriods: {
-    type: Object,
-    required: true,
-  },
-})
+import { useLoanStore } from '../stores/LoanStore'
+const ls = useLoanStore()
+ls.fillPeriods()
+
 </script>
 
 <template>
@@ -16,8 +14,11 @@ defineProps({
       repaid
     </label>
     <select class="form-input">
-      <option v-for="period in loanPeriods" :key="period.id">
-        {{ period.name }}
+      <option
+        v-for="period in ls.periods"
+        :key="period.value"
+      >
+        {{ period.label }}
       </option>
     </select>
   </div>

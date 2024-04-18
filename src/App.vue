@@ -7,14 +7,10 @@ import LoanInputPurpose from './components/LoanInputPurpose.vue'
 import LoanRepaymentPeriods from './components/LoanRepaymentPeriods.vue'
 import LoanTermInput from './components/LoanTermInput.vue'
 
+import PMT from './utils/PMT.js'
+
 defineOptions({
   name: 'App',
-})
-
-const calculation = ref(2)
-
-const monthlyRepaymentAmount = computed(() => {
-  return Math.round(calculation)
 })
 
 </script>
@@ -43,9 +39,9 @@ const monthlyRepaymentAmount = computed(() => {
         class="pt-4 mt-4 text-center border-t-4 border-black border-solid"
       >
         <p>
-          {{ monthlyRepaymentAmount }} Monthly Repayments
+          {{ ls.monthlyRepaymentAmount }} Monthly Repayments
         </p>
-        <p>{{ toalRepayments }} Total Repayments</p>
+        <p>{{ ls.toalRepayments }} Total Repayments</p>
       </div>
     </div>
   </div>
