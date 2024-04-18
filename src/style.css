@@ -4,16 +4,39 @@
 
 @layer base {
     
-}
-
-
-@layer components {
+    .form-input-container {
+        width: 100%;
+        display: flex; 
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: centerl
+    }
+    
+    .form-label {
+        margin-right: theme('spacing.2');
+        margin-left: theme('spacing.2');
+        flex-shrink: theme('flexShrink.0');
+        min-width: 40px; 
+        text-align: center;
+    }
+    
+    
     .form-input {
-        border: theme('borderWidth.2') solid theme('colors.black');
-        width: theme('width.full');
+        border: theme('borderWidth.2') solid theme('colors.black'); 
         border-radius: theme('borderRadius.lg');
         padding: theme( 'spacing.2' ); 
         transition: .125s ease-in box-shadow;
+        min-width: 150px;
+        width: 100%;
+        max-width: 200px;
+        margin-bottom: 1rem;
+    }
+    
+    @screen md {
+        .form-input {
+            width: 100%;
+            min-width: 125px;
+        }
     }
     
     .form-input:focus {
