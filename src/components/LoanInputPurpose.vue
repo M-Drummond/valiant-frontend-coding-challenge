@@ -16,10 +16,14 @@ ls.fillPurposes()
     >
       for
     </label>
-    <select class="form-input">
+    <select
+      v-model="ls.selectedPurpose"
+      class="form-input"
+    >
       <option
         v-for="purpose in ls.purposes"
         :key="purpose.id"
+        :value="purpose"
       >
         {{ purpose.label }}
       </option>

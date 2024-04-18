@@ -1,13 +1,13 @@
 <script setup>
 
-import { ref, computed } from 'vue'
-
 import LoanInputAmount from './components/LoanInputAmount.vue'
 import LoanInputPurpose from './components/LoanInputPurpose.vue'
 import LoanRepaymentPeriods from './components/LoanRepaymentPeriods.vue'
 import LoanTermInput from './components/LoanTermInput.vue'
 
-import PMT from './utils/PMT.js'
+import { useLoanStore } from './stores/LoanStore'
+
+const ls = useLoanStore()
 
 defineOptions({
   name: 'App',
@@ -42,6 +42,7 @@ defineOptions({
           {{ ls.monthlyRepaymentAmount }} Monthly Repayments
         </p>
         <p>{{ ls.toalRepayments }} Total Repayments</p>
+        {{ ls.calculate }}
       </div>
     </div>
   </div>

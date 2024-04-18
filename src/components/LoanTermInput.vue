@@ -16,10 +16,14 @@ ls.fillTerms()
     >
       over
     </label>
-    <select class="form-input">
+    <select
+      v-model="ls.selectedTerm"
+      class="form-input"
+    >
       <option
         v-for="term in ls.terms"
         :key="term.value"
+        :value="term"
       >
         {{ term.label }}
       </option>
