@@ -1,5 +1,6 @@
-<script setup>
+<script setup lang="js">
 
+// import { computed } from 'vue'
 import LoanInputAmount from './components/LoanInputAmount.vue'
 import LoanInputPurpose from './components/LoanInputPurpose.vue'
 import LoanRepaymentPeriods from './components/LoanRepaymentPeriods.vue'
@@ -39,10 +40,10 @@ defineOptions({
         class="pt-4 mt-4 text-center border-t-4 border-black border-solid"
       >
         <p>
+          {{ ls.calculate() }}
           {{ ls.monthlyRepaymentAmount }} Monthly Repayments
         </p>
         <p>{{ ls.toalRepayments }} Total Repayments</p>
-        {{ ls.calculate }}
       </div>
     </div>
   </div>
