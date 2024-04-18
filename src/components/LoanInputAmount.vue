@@ -17,7 +17,7 @@ const ls = useLoanStore()
       id="LoanAmount"
       v-model="ls.loanValue"
       placeholder="$30 000"
-      type="number"
+      type="text"
       pattern="[0-9]*"
       class="form-input"
     >
