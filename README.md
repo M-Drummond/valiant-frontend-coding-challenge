@@ -25,3 +25,14 @@ npm install
 - `npm run lint` – Lint the code.
 - `npm run test:e2e` – Open Cypress.
 - `npm run test:unit` – Run vitest unit tests.
+
+
+# TODO
+
+- Frame out the grid of the site/widget.  Attempt to emulate the fat marker look
+- Components for each input and for each output, group styles into slotted components
+- Fetch data / functionality for each component
+- Validate inputs + test
+- Add Pinia store
+- Implement calcuation as a store action
+- Add cypress test.
