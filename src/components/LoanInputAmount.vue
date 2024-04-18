@@ -1,11 +1,6 @@
 <script setup lang="ts">
-
-defineProps({
-  loanAmount: {
-    type: Number,
-    required: true,
-  },
-})
+import { ref } from 'vue'
+const loanAmount = ref(30000)
 
 </script>
 
@@ -19,6 +14,7 @@ defineProps({
     </label>
     <input
       id="LoanAmount"
+      v-model="loanAmount"
       placeholder="$30 000"
       type="number"
       pattern="[0-9]*"

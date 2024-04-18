@@ -1,10 +1,11 @@
 <script setup lang="ts">
-defineProps({
-  loanPurposes: {
-    type: Object,
-    required: true,
-  },
-})
+
+import { useLoanStore } from '../stores/LoanStore'
+
+const ls = useLoanStore()
+
+ls.fillPurposes()
+
 </script>
 
 <template>
@@ -16,8 +17,11 @@ defineProps({
       for
     </label>
     <select class="form-input">
-      <option v-for="purpose in loanPurposes" :key="purpose.id">
-        {{ purpose.name }}
+      <option
+        v-for="purpose in ls.purposes"
+        :key="purpose.id"
+      >
+        {{ purpose.label }}
       </option>
     </select>
   </div>
