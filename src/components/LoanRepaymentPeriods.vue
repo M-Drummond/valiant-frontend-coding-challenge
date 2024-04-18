@@ -13,10 +13,14 @@ ls.fillPeriods()
     >
       repaid
     </label>
-    <select class="form-input">
+    <select
+      v-model="ls.selectedPeriod"
+      class="form-input"
+    >
       <option
         v-for="period in ls.periods"
         :key="period.value"
+        :value="period"
       >
         {{ period.label }}
       </option>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-const loanAmount = ref(30000)
+import { useLoanStore } from '../stores/LoanStore'
+
+const ls = useLoanStore()
 
 </script>
 
@@ -14,7 +15,7 @@ const loanAmount = ref(30000)
     </label>
     <input
       id="LoanAmount"
-      v-model="loanAmount"
+      v-model="ls.loanValue"
       placeholder="$30 000"
       type="number"
       pattern="[0-9]*"
