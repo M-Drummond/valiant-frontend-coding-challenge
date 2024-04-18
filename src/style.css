@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+    .form-input {
+        border: theme('borderWidth.2') solid theme('colors.black');
+        width: theme('width.full');
+        border-radius: theme('borderRadius.lg');
+        padding: theme( 'spacing.2' ) 
+    }
+}
