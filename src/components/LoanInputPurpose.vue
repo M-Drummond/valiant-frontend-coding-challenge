@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps({
-  purposes: {
+  loanPurposes: {
     type: Object,
     required: true,
   },
@@ -8,7 +8,18 @@ defineProps({
 </script>
 
 <template>
-  <select>
-  </select>
+  <div class="flex flex-row items-center justify-center">
+    <label
+      for="LoanAmount"
+      class="mr-2 shrink-0"
+    >
+      For:
+    </label>
+    <select class="form-input">
+      <option v-for="purpose in loanPurposes" :key="purpose.id">
+        {{ purpose.name }}
+      </option>
+    </select>
+  </div>
 </template>
 <style scoped></style>
