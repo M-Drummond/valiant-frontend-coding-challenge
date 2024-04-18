@@ -5,6 +5,9 @@ defineOptions({
 </script>
 
 <template>
-  <!-- TODO: Complete the coding challenge here! -->
-  <div />
+
+  <div class="container p-4 mx-auto">
+
+  </div>
+
 </template>
