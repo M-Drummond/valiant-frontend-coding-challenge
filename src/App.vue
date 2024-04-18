@@ -24,15 +24,19 @@ const monthlyRepaymentAmount = computed(() => {
     <div class="">
       <div
         id="LoanInputs"
-        class="grid grid-cols-2 gap-4"
+        class="flex flex-col items-center"
       >
-        <LoanInputAmount />
+        <div class="flex flex-col items-center justify-center md:mb-4 md:flex-row">
+          <LoanInputAmount />
 
-        <LoanInputPurpose />
+          <LoanInputPurpose />
+        </div>
 
-        <LoanRepaymentPeriods />
+        <div class="flex flex-col items-center justify-center md:mb-4 md:flex-row">
+          <LoanRepaymentPeriods />
 
-        <LoanTermInput />
+          <LoanTermInput />
+        </div>
       </div>
       <div
         id="LoanOutPuts"

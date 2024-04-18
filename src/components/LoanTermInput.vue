@@ -8,12 +8,12 @@ defineProps({
 </script>
 
 <template>
-  <div class="flex flex-row items-center justify-center">
+  <div class="form-input-container">
     <label
       for="LoanAmount"
-      class="mr-2 shrink-0"
+      class="form-label"
     >
-      Over
+      over
     </label>
     <select class="form-input">
       <option v-for="purpose in loanTerms" :key="purpose.id">
