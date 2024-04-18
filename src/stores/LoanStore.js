@@ -23,12 +23,11 @@ export const useLoanStore = defineStore('loanStore', {
         // we keep both because we may want to modify (filter etc in the future )
         const modifiedData = fetchedData
 
-        console.log(modifiedData)
         // assign it to the store data
         this.purposes = modifiedData ?? []
         this.selectedPurpose = this.purposes[0]
       } catch (error) {
-        console.error('Error fetching data:', error)
+        // console.error('Error fetching data:', error)
         // Handle error or throw it further
       }
     },
@@ -40,7 +39,7 @@ export const useLoanStore = defineStore('loanStore', {
         this.terms = modifiedData ?? []
         this.selectedTerm = this.terms[0]
       } catch (error) {
-        console.error('Error fetching data:', error)
+        // console.error('Error fetching data:', error)
       }
     },
     async fillPeriods () {
@@ -51,7 +50,7 @@ export const useLoanStore = defineStore('loanStore', {
         this.periods = modifiedData ?? []
         this.selectedPeriod = this.periods[0]
       } catch (error) {
-        console.error('Error fetching data:', error)
+        // console.error('Error fetching data:', error)
       }
     },
     actions: {
