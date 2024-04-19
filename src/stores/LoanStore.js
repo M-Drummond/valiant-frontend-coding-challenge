@@ -15,7 +15,7 @@ export const useLoanStore = defineStore('loanStore', {
     selectedPurpose: {},
     selectedTerm: {},
     selectedPeriod: {},
-    loanValue: 30000,
+    loanValue: null,
   }),
   actions: {
     async fillPurposes () {

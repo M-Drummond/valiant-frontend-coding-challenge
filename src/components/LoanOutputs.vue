@@ -1,0 +1,28 @@
+<script setup lang="js">
+import { useLoanStore } from '../stores/LoanStore'
+const ls = useLoanStore()
+</script>
+
+<template>
+  <div
+    id="LoanOutputs"
+    class="pt-4 mt-4 text-center border-t-4 border-black border-solid dark:border-white"
+  >
+    <div class="relative">
+      <div v-if="ls.monthlyRepaymentsAmount()">
+        <p class="my-4 font-bold">
+          ${{ ls.monthlyRepaymentsAmount() }} {{ ls.selectedPeriod.label }} Repayments
+        </p>
+        <p class="my-4 font-bold">
+          ${{ ls.totalRepaymentsAmount() }} Total Repayment
+        </p>
+      </div>
+      <div v-else>
+        <p class="my-4 font-bold">
+          Enter some details to get started!
+        </p>
+        <p class="my-4 font-bold" />
+      </div>
+    </div>
+  </div>
+</template>
