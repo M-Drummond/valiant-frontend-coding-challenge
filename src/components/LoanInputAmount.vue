@@ -13,6 +13,7 @@ const ls = useLoanStore()
     >
       I need
     </label>
+    <span class="mr-2">$</span>
     <input
       id="LoanAmount"
       v-model="ls.loanValue"

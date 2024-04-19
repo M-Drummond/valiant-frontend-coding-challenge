@@ -7,9 +7,11 @@ import PMT from '../utils/PMT.js'
 
 export const useLoanStore = defineStore('loanStore', {
   state: () => ({
+    // available options
     purposes: [],
     terms: [],
     periods: [],
+    // user inputs:
     selectedPurpose: {},
     selectedTerm: {},
     selectedPeriod: {},
@@ -37,7 +39,7 @@ export const useLoanStore = defineStore('loanStore', {
         const fetchedData = await fetchLoanTerms()
         const modifiedData = fetchedData
         this.terms = modifiedData ?? []
-        this.selectedTerm = this.terms[0]
+        this.selectedTerm = this.terms[2]
       } catch (error) {
         // console.error('Error fetching data:', error)
       }
@@ -48,22 +50,36 @@ export const useLoanStore = defineStore('loanStore', {
         const fetchedData = await fetchLoanPeriods()
         const modifiedData = fetchedData
         this.periods = modifiedData ?? []
-        this.selectedPeriod = this.periods[0]
+        this.selectedPeriod = this.periods[2]
       } catch (error) {
         // console.error('Error fetching data:', error)
       }
     },
-    calculate () {
+    monthlyRepaymentsAmount () {
+      //
+      //
       // Example of a $30,000 loan amount at a rate of 10% per year over 2 years, paid monthly.
       // PMT(
       // 0.1 / 12, // Divide the annual rate by the number of monthly repayment periods in the year.
       //   24, // 2 year loan term means there are 24 monthly repayment periods.
       // 30000 // Present value, i.e., the principal of the loan, is 30000.
       // )
-      // const rate = this.selectedTerm
-      // console.log( P  , M , T  )
-      return PMT(1, 2, 3)
-      // return 'something calculated'
+
+      const P = this.selectedPurpose.annualRate / 12
+      const M = this.selectedTerm.value * this.selectedPeriod.value
+      const T = parseInt(this.loanValue) // Present value, i.e., the principal of the loan, is 30000
+
+      console.log(P, M, T)
+
+      const calculationResult = PMT(P, M, T)
+      // output calculation as a positive, round number ready for display.
+      return Math.round(calculationResult * -1)
+    },
+    totalRepaymentsCount () {
+      return (this.selectedPeriod.value * this.selectedTerm.value)
+    },
+    totalRepaymentsAmount () {
+      return (this.selectedPeriod.value * this.selectedTerm.value) * (this.selectedPeriod.value)
     },
   },
 })
