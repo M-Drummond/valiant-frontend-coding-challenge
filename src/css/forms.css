@@ -1,15 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
+/* forms.css */
 
 @layer base {
   .form-input-container {
@@ -17,14 +6,14 @@
     /* min-width: 100%; */
     display: flex;
     flex-direction: column;
-    align-items: baseline ;
+    align-items: baseline;
     justify-content: space-between;
   }
-  
+
   @screen md {
     .form-input-container {
-        flex-direction: row;
-        justify-content: center;
+      flex-direction: row;
+      justify-content: center;
     }
   }
 
@@ -43,7 +32,7 @@
     padding: theme("spacing.2");
     transition: 0.125s ease-in box-shadow;
     min-width: 150px;
-    width: 100%; 
+    width: 100%;
     margin-bottom: 1rem;
     font-weight: bold;
     box-shadow: theme("boxShadow.input");
