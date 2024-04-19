@@ -11,12 +11,13 @@ ls.fillPurposes()
 <template>
   <div class="form-input-container">
     <label
-      for="LoanAmount"
+      for="LoanPurpose"
       class="form-label"
     >
       for
     </label>
     <select
+      id="LoanPurpose"
       v-model="ls.selectedPurpose"
       class="form-input"
     >

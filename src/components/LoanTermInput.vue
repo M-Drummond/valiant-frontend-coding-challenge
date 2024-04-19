@@ -11,12 +11,13 @@ ls.fillTerms()
 <template>
   <div class="form-input-container">
     <label
-      for="LoanAmount"
+      for="LoanTerm"
       class="form-label"
     >
       over
     </label>
     <select
+      id="LoanTerm"
       v-model="ls.selectedTerm"
       class="form-input"
     >

@@ -8,12 +8,13 @@ ls.fillPeriods()
 <template>
   <div class="form-input-container">
     <label
-      for="LoanAmount"
+      for="LoanPeriod"
       class="form-label"
     >
       repaid
     </label>
     <select
+      id="LoanPeriod"
       v-model="ls.selectedPeriod"
       class="form-input"
     >
