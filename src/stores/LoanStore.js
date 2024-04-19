@@ -15,7 +15,9 @@ export const useLoanStore = defineStore('loanStore', {
     selectedPurpose: {},
     selectedTerm: {},
     selectedPeriod: {},
-    loanValue: 30000,
+    loanValue: null,
+    // form validation check
+    loanValueValid: false,
   }),
   actions: {
     async fillPurposes () {
@@ -55,6 +57,14 @@ export const useLoanStore = defineStore('loanStore', {
         // console.error('Error fetching data:', error)
       }
     },
+    loanValueIsValid () {
+      if (this.loanValue >= 1000 && this.loanValue <= 20000000) {
+        console.log(this.loanValue)
+        this.loanValueValid = true
+      } else {
+        this.loanValueValid = false
+      }
+    },
     monthlyRepaymentsAmount () {
       //
       /*
@@ -77,9 +87,6 @@ export const useLoanStore = defineStore('loanStore', {
       // output calculation as a positive, round number ready for display.
       return Math.round(calculationResult * -1)
     },
-    // totalRepaymentsCount () {
-    //   return (this.selectedPeriod.value * this.selectedTerm.value)
-    // },
     totalRepaymentsAmount () {
       const totalRepayments = this.selectedTerm.value / 12 * this.selectedPeriod.value
       return (totalRepayments * this.monthlyRepaymentsAmount())

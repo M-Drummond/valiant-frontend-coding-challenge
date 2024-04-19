@@ -15,14 +15,23 @@ const ls = useLoanStore()
     </label>
     <!-- <span class="mr-2">$</span> -->
     <input
-      id="LoanAmount"
+      v-model="ls.loanValue"
+      type="text"
+      class="hidden"
+    >
+    <input
+      id="LoanAmountInputNumber"
       v-model="ls.loanValue"
       placeholder="$30 000"
-      type="text"
+      min="1000"
+      max="20000000"
+      type="number"
       autocomplete="false"
       pattern="[0-9]*"
-      min="0"
       class="form-input"
+      step="1000"
+      required
+      @input="ls.loanValueIsValid()"
     >
   </div>
 </template>

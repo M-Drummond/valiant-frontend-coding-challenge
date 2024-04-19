@@ -9,7 +9,7 @@ const ls = useLoanStore()
     class="mt-4 border-t-4 border-solid border-black pt-4 text-center dark:border-white"
   >
     <div class="relative">
-      <div v-if="ls.monthlyRepaymentsAmount()">
+      <div v-if="ls.monthlyRepaymentsAmount() && ls.loanValueValid">
         <p class="my-4 font-bold">
           ${{ ls.monthlyRepaymentsAmount() }} {{ ls.selectedPeriod.label }} Repayments
         </p>
@@ -22,7 +22,7 @@ const ls = useLoanStore()
           Enter some details to get started.
         </p>
         <p class="my-4 text-sm font-bold">
-          Your loan will be calculated as you go.
+          {{ !ls.loanValueValid ? 'Minimum is 1000, Maxmimum is 20000000' : 'Your loan will be calcualted as you go' }}
         </p>
       </div>
     </div>
