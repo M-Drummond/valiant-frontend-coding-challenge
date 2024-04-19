@@ -40,7 +40,7 @@ defineOptions({
         class="pt-4 mt-4 text-center border-t-4 border-black border-solid"
       >
         <p>
-          ${{ ls.monthlyRepaymentsAmount() }} Monthly Repayments
+          ${{ ls.monthlyRepaymentsAmount() }} {{ ls.selectedPeriod.label }} Repayments
         </p>
         <!-- <p>{{ ls.totalRepaymentsCount() }} Total Repayments</p> -->
         <p>${{ ls.totalRepaymentsAmount() }} Total Repayment</p>
