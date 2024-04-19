@@ -19,9 +19,11 @@ const ls = useLoanStore()
       </div>
       <div v-else>
         <p class="my-4 font-bold">
-          Enter some details to get started!
+          Enter some details to get started.
         </p>
-        <p class="my-4 font-bold" />
+        <p class="my-4 text-sm font-bold">
+          Your loan will be calculated as you go.
+        </p>
       </div>
     </div>
   </div>
