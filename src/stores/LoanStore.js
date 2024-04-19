@@ -15,7 +15,7 @@ export const useLoanStore = defineStore('loanStore', {
     selectedPurpose: {},
     selectedTerm: {},
     selectedPeriod: {},
-    loanValue: null,
+    loanValue: 30000,
   }),
   actions: {
     async fillPurposes () {
@@ -64,23 +64,25 @@ export const useLoanStore = defineStore('loanStore', {
         24, // 2 year loan term means there are 24 monthly repayment periods.
       30000 // Present value, i.e., the principal of the loan, is 30000.
       )
+
       */
 
-      const P = this.selectedPurpose.annualRate / 12 // the annualised rate
-      const M = this.selectedPeriod.value // the amount of repayment periods
-      const T = parseInt(this.loanValue) // Present value, i.e., the principal of the loan, is 30000
+      const ratePerPeriod = this.selectedPurpose.annualRate / this.selectedPeriod.value
+      const totalRepayments = this.selectedTerm.value / 12 * this.selectedPeriod.value
+      const loanAmount = this.loanValue
 
-      console.log(P, M, T)
+      // console.log(ratePerPeriod, totalRepayments, loanAmount)
 
-      const calculationResult = PMT(P, M, T)
+      const calculationResult = PMT(ratePerPeriod, totalRepayments, loanAmount)
       // output calculation as a positive, round number ready for display.
       return Math.round(calculationResult * -1)
     },
-    totalRepaymentsCount () {
-      return (this.selectedPeriod.value * this.selectedTerm.value)
-    },
+    // totalRepaymentsCount () {
+    //   return (this.selectedPeriod.value * this.selectedTerm.value)
+    // },
     totalRepaymentsAmount () {
-      return (this.selectedPeriod.value * this.selectedTerm.value)
+      const totalRepayments = this.selectedTerm.value / 12 * this.selectedPeriod.value
+      return (totalRepayments * this.monthlyRepaymentsAmount())
     },
   },
 })

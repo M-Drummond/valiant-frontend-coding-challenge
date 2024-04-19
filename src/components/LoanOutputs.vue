@@ -6,15 +6,15 @@ const ls = useLoanStore()
 <template>
   <div
     id="LoanOutputs"
-    class="pt-4 mt-4 text-center border-t-4 border-black border-solid dark:border-white"
+    class="mt-4 border-t-4 border-solid border-black pt-4 text-center dark:border-white"
   >
     <div class="relative">
       <div v-if="ls.monthlyRepaymentsAmount()">
         <p class="my-4 font-bold">
           ${{ ls.monthlyRepaymentsAmount() }} {{ ls.selectedPeriod.label }} Repayments
         </p>
-        <p class="my-4 font-bold">
-          ${{ ls.totalRepaymentsAmount() }} Total Repayment
+        <p class="my-4 text-sm font-bold">
+          ${{ ls.totalRepaymentsAmount() }} Total Repayments
         </p>
       </div>
       <div v-else>
