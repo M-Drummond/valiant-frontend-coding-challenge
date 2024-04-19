@@ -57,16 +57,17 @@ export const useLoanStore = defineStore('loanStore', {
     },
     monthlyRepaymentsAmount () {
       //
-      //
-      // Example of a $30,000 loan amount at a rate of 10% per year over 2 years, paid monthly.
-      // PMT(
-      // 0.1 / 12, // Divide the annual rate by the number of monthly repayment periods in the year.
-      //   24, // 2 year loan term means there are 24 monthly repayment periods.
-      // 30000 // Present value, i.e., the principal of the loan, is 30000.
-      // )
+      /*
+      Example of a $30,000 loan amount at a rate of 10% per year over 2 years, paid monthly.
+      PMT(
+      0.1 / 12, // Divide the annual rate by the number of monthly repayment periods in the year.
+        24, // 2 year loan term means there are 24 monthly repayment periods.
+      30000 // Present value, i.e., the principal of the loan, is 30000.
+      )
+      */
 
-      const P = this.selectedPurpose.annualRate / 12
-      const M = this.selectedPeriod.value
+      const P = this.selectedPurpose.annualRate / 12 // the annualised rate
+      const M = this.selectedPeriod.value // the amount of repayment periods
       const T = parseInt(this.loanValue) // Present value, i.e., the principal of the loan, is 30000
 
       console.log(P, M, T)

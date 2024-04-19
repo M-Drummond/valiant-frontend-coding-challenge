@@ -2,45 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
 @layer base {
-    
+  .form-input-container {
+    width: 100%;
+    /* min-width: 100%; */
+    display: flex;
+    flex-direction: column;
+    align-items: baseline ;
+    justify-content: space-between;
+  }
+  
+  @screen md {
     .form-input-container {
-        width: 100%;
-        display: flex; 
         flex-direction: row;
-        align-items: baseline;
-        justify-content: centerl
+        justify-content: center;
     }
-    
-    .form-label {
-        margin-right: theme('spacing.2');
-        margin-left: theme('spacing.2');
-        flex-shrink: theme('flexShrink.0');
-        min-width: 40px; 
-        text-align: center;
-    }
-    
-    
+  }
+
+  .form-label {
+    margin-right: theme("spacing.2");
+    margin-left: theme("spacing.2");
+    flex-shrink: theme("flexShrink.0");
+    min-width: 40px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .form-input {
+    border: theme("borderWidth.2") solid theme("colors.black");
+    border-radius: theme("borderRadius.lg");
+    padding: theme("spacing.2");
+    transition: 0.125s ease-in box-shadow;
+    min-width: 150px;
+    width: 100%; 
+    margin-bottom: 1rem;
+    font-weight: bold;
+    box-shadow: theme("boxShadow.input");
+    /* People hate @apply, with good reason, but this is a very compact way of doing this. */
+    @apply dark:bg-black dark:text-white dark:border-white;
+    @apply outline-0;
+  }
+
+  @screen sm {
     .form-input {
-        border: theme('borderWidth.2') solid theme('colors.black'); 
-        border-radius: theme('borderRadius.lg');
-        padding: theme( 'spacing.2' ); 
-        transition: .125s ease-in box-shadow;
-        min-width: 150px;
-        width: 100%;
-        max-width: 200px;
-        margin-bottom: 1rem;
+      width: 100%;
+      max-width: 225px;
     }
-    
-    @screen md {
-        .form-input {
-            width: 100%;
-            min-width: 125px;
-        }
+  }
+
+  @screen md {
+    .form-input {
+      width: 100%;
+      min-width: 225px;
     }
-    
-    .form-input:focus {
-        box-shadow: theme('boxShadow.md')
-    }
-    
+  }
+
+  .form-input:focus {
+    box-shadow: theme("boxShadow.input");
+  }
 }

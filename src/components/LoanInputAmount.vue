@@ -13,13 +13,15 @@ const ls = useLoanStore()
     >
       I need
     </label>
-    <span class="mr-2">$</span>
+    <!-- <span class="mr-2">$</span> -->
     <input
       id="LoanAmount"
       v-model="ls.loanValue"
       placeholder="$30 000"
       type="text"
+      autocomplete="false"
       pattern="[0-9]*"
+      min="0"
       class="form-input"
     >
   </div>

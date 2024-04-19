@@ -34,6 +34,6 @@ npm install
 - [✅] Fetch data / functionality for each component
 - [] Validate inputs + test
 - [✅] Add Pinia store
-- [] Implement calcuation as a store action
+- [✅] Implement calcuation as a store action
 - [] Add cypress test.
 - [] Favicons, Manifest etc
