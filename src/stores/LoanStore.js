@@ -66,7 +66,7 @@ export const useLoanStore = defineStore('loanStore', {
       // )
 
       const P = this.selectedPurpose.annualRate / 12
-      const M = this.selectedTerm.value * this.selectedPeriod.value
+      const M = this.selectedPeriod.value
       const T = parseInt(this.loanValue) // Present value, i.e., the principal of the loan, is 30000
 
       console.log(P, M, T)
@@ -79,7 +79,7 @@ export const useLoanStore = defineStore('loanStore', {
       return (this.selectedPeriod.value * this.selectedTerm.value)
     },
     totalRepaymentsAmount () {
-      return (this.selectedPeriod.value * this.selectedTerm.value) * (this.selectedPeriod.value)
+      return (this.selectedPeriod.value * this.selectedTerm.value)
     },
   },
 })
