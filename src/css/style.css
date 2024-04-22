@@ -1,5 +1,4 @@
-@import 'forms.css';
-@import 'transitions.css';
+@import 'forms.css'; 
 
 @tailwind base;
 @tailwind components;
