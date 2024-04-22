@@ -1,11 +1,8 @@
 <script setup lang="js">
-
 import { useLoanStore } from '../stores/LoanStore'
-
 const ls = useLoanStore()
 
 ls.fillTerms()
-
 </script>
 
 <template>

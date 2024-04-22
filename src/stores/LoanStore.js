@@ -78,7 +78,7 @@ export const useLoanStore = defineStore('loanStore', {
     },
 
     /**
-    * @return `true/false` if the input as between the min/max values
+    * @function return `true/false` if the input as between the min/max values
     **/
 
     loanValueIsValid () {
@@ -95,23 +95,10 @@ export const useLoanStore = defineStore('loanStore', {
     * @returns { number }
     */
 
-    /**
-      @Example a $30,000 loan amount at a rate of 10% per year over 2 years, paid monthly.
-      PMT(
-      0.1 / 12, // Divide the annual rate by the number of monthly repayment periods in the year.
-        24, // 2 year loan term means there are 24 monthly repayment periods.
-      30000 // Present value, i.e., the principal of the loan, is 30000.
-      )
-      @Example PMT(0.1,24,30000)
-      @returns {number} 1384
-    */
-
     monthlyRepaymentsAmount () {
       const ratePerPeriod = this.selectedPurpose.annualRate / this.selectedPeriod.value
       const totalRepayments = this.selectedTerm.value / 12 * this.selectedPeriod.value
       const loanAmount = this.loanValue
-
-      // console.log(ratePerPeriod, totalRepayments, loanAmount)
 
       const calculationResult = PMT(ratePerPeriod, totalRepayments, loanAmount)
       // output calculation as a positive, round number ready for display.

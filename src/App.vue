@@ -1,6 +1,4 @@
 <script setup lang="js">
-
-// import { computed } from 'vue'
 import LoanInputAmount from './components/LoanInputAmount.vue'
 import LoanInputPurpose from './components/LoanInputPurpose.vue'
 import LoanRepaymentPeriods from './components/LoanRepaymentPeriods.vue'
@@ -10,7 +8,6 @@ import LoanOutputs from './components/LoanOutputs.vue'
 defineOptions({
   name: 'App',
 })
-
 </script>
 
 <template>
