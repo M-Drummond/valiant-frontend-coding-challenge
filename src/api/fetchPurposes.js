@@ -16,6 +16,6 @@ export async function fetchPurposes () {
   } catch (error) {
     throw new Error(error?.response.data.message || 'Failed to fetch data')
   } finally {
-    console.log('fetch finished')
+    // console.log('fetch finished')
   }
 }

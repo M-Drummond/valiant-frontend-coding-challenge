@@ -83,7 +83,7 @@ export const useLoanStore = defineStore('loanStore', {
 
     loanValueIsValid () {
       if (this.loanValue >= 1000 && this.loanValue <= 20000000) {
-        console.log(this.loanValue)
+        // console.log(this.loanValue)
         this.loanValueValid = true
       } else {
         this.loanValueValid = false
