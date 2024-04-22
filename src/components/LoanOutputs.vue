@@ -18,10 +18,10 @@ const ls = useLoanStore()
         </p>
       </div>
       <div v-else>
-        <p class="my-4 font-bold">
+        <p class="my-4 text-sm font-bold md:text-base">
           Enter some details to get started.
         </p>
-        <p class="my-4 text-sm font-bold">
+        <p class="my-4 text-xs font-bold md:text-sm">
           {{ !ls.loanValueValid ? 'Minimum is 1000, Maxmimum is 20000000' : 'Your loan will be calcualted as you go' }}
         </p>
       </div>
